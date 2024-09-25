@@ -1,0 +1,65 @@
+#! /nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/lib/ivl/system.vpi";
+:vpi_module "/nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/nix/store/wrswikxsf8z30hhz2jnf557dqni2gwbc-iverilog-12.0/lib/ivl/va_math.vpi";
+S_0x112f6c0 .scope module, "Guia_0105" "Guia_0105" 2 6;
+ .timescale 0 0;
+v0x112f300_0 .var "a", 63 0;
+v0x1165970_0 .var "b", 55 0;
+v0x1165a30_0 .var "c", 111 0;
+v0x1165ad0_0 .var "d", 39 0;
+v0x1165b90_0 .var "e", 39 0;
+S_0x111a4d0 .scope begin, "main" "main" 2 14, 2 14 0, S_0x112f6c0;
+ .timescale 0 0;
+    .scope S_0x112f6c0;
+T_0 ;
+    %pushi/vec4 1347765037, 0, 32; draw_string_vec4
+    %pushi/vec4 1294878510, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x112f300_0, 0, 64;
+    %pushi/vec4 842019380, 0, 32; draw_string_vec4
+    %pushi/vec4 2961458, 0, 24; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x1165970_0, 0, 56;
+    %pushi/vec4 1113943151, 0, 32; draw_string_vec4
+    %pushi/vec4 541618034, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1769631598, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29797, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x1165a30_0, 0, 112;
+    %pushi/vec4 3705590504, 0, 33;
+    %concati/vec4 101, 0, 7;
+    %store/vec4 v0x1165ad0_0, 0, 40;
+    %pushi/vec4 2596461776, 0, 33;
+    %concati/vec4 97, 0, 7;
+    %store/vec4 v0x1165b90_0, 0, 40;
+    %end;
+    .thread T_0;
+    .scope S_0x112f6c0;
+T_1 ;
+    %fork t_1, S_0x111a4d0;
+    %jmp t_0;
+    .scope S_0x111a4d0;
+t_1 ;
+    %vpi_call 2 15 "$display", "a.) %s = %x", v0x112f300_0, v0x112f300_0 {0 0 0};
+    %vpi_call 2 16 "$display", "b.) %s = %x", v0x1165970_0, v0x1165970_0 {0 0 0};
+    %vpi_call 2 17 "$display", "c.) %s = %14b", v0x1165a30_0, v0x1165a30_0 {0 0 0};
+    %vpi_call 2 18 "$display", "d.) %o = %s", v0x1165ad0_0, v0x1165ad0_0 {0 0 0};
+    %vpi_call 2 19 "$display", "e.) %X = %s", v0x1165b90_0, v0x1165b90_0 {0 0 0};
+    %end;
+    .scope S_0x112f6c0;
+t_0 %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0105.v";

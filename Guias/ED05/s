@@ -1,0 +1,80 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x6373e5c60490 .scope module, "Guia_0508" "Guia_0508" 2 9;
+ .timescale 0 0;
+v0x6373e5cad0b0_0 .var "a", 0 0;
+v0x6373e5cad180_0 .var "b", 0 0;
+v0x6373e5cad250_0 .var/i "counter", 31 0;
+v0x6373e5cad320_0 .net "s", 0 0, L_0x6373e5cad530;  1 drivers
+S_0x6373e5c60620 .scope begin, "main" "main" 2 16, 2 16 0, S_0x6373e5c60490;
+ .timescale 0 0;
+S_0x6373e5c99790 .scope module, "nd" "QUESTAO" 2 14, 2 3 0, S_0x6373e5c60490;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s2";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+L_0x6373e5cad3f0 .functor NAND 1, v0x6373e5cad0b0_0, v0x6373e5cad180_0, C4<1>, C4<1>;
+L_0x6373e5cad530 .functor NAND 1, L_0x6373e5cad3f0, L_0x6373e5cad3f0, C4<1>, C4<1>;
+v0x6373e5c999c0_0 .net "a", 0 0, v0x6373e5cad0b0_0;  1 drivers
+v0x6373e5cace10_0 .net "b", 0 0, v0x6373e5cad180_0;  1 drivers
+v0x6373e5caced0_0 .net "s2", 0 0, L_0x6373e5cad530;  alias, 1 drivers
+v0x6373e5cacf70_0 .net "semi", 0 0, L_0x6373e5cad3f0;  1 drivers
+    .scope S_0x6373e5c60490;
+T_0 ;
+    %fork t_1, S_0x6373e5c60620;
+    %jmp t_0;
+    .scope S_0x6373e5c60620;
+t_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6373e5cad0b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6373e5cad180_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x6373e5cad250_0, 0, 32;
+    %vpi_call 2 18 "$display", "Guia_05 - Questao 8" {0 0 0};
+    %vpi_call 2 19 "$display", "Tabela verdade da expressao (a'+b')' (equivalente a \042a.b\042)" {0 0 0};
+    %vpi_call 2 20 "$display", "m | a b | s" {0 0 0};
+    %vpi_call 2 21 "$monitor", "%0d | %b %b | %b", v0x6373e5cad250_0, v0x6373e5cad0b0_0, v0x6373e5cad180_0, v0x6373e5cad320_0 {0 0 0};
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x6373e5cad180_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x6373e5cad250_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x6373e5cad250_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6373e5cad180_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x6373e5cad0b0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x6373e5cad250_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x6373e5cad250_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x6373e5cad180_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x6373e5cad250_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x6373e5cad250_0, 0, 32;
+    %end;
+    .scope S_0x6373e5c60490;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0508.v";

@@ -1,0 +1,139 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x59c72f1b28c0 .scope module, "extra6" "extra6" 2 5;
+ .timescale 0 0;
+v0x59c72f1caf50_0 .var/i "counter", 31 0;
+v0x59c72f1cb030_0 .net "s1", 0 0, L_0x59c72f1cbaf0;  1 drivers
+v0x59c72f1cb0f0_0 .var "x", 0 0;
+v0x59c72f1cb1f0_0 .var "y", 0 0;
+v0x59c72f1cb2c0_0 .var "z", 0 0;
+S_0x59c72f1b2a50 .scope module, "fxyz_1" "EXTRA6" 2 10, 2 1 0, S_0x59c72f1b28c0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s1";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /INPUT 1 "y";
+    .port_info 3 /INPUT 1 "z";
+L_0x59c72f1cb3b0 .functor NOT 1, v0x59c72f1cb0f0_0, C4<0>, C4<0>, C4<0>;
+L_0x59c72f1cb4a0 .functor OR 1, L_0x59c72f1cb3b0, v0x59c72f1cb1f0_0, C4<0>, C4<0>;
+L_0x59c72f1cb5b0 .functor NOT 1, v0x59c72f1cb2c0_0, C4<0>, C4<0>, C4<0>;
+L_0x59c72f1cb670 .functor OR 1, L_0x59c72f1cb4a0, L_0x59c72f1cb5b0, C4<0>, C4<0>;
+L_0x59c72f1cb7b0 .functor NOT 1, v0x59c72f1cb1f0_0, C4<0>, C4<0>, C4<0>;
+L_0x59c72f1cb820 .functor OR 1, v0x59c72f1cb0f0_0, L_0x59c72f1cb7b0, C4<0>, C4<0>;
+L_0x59c72f1cb920 .functor NOT 1, v0x59c72f1cb2c0_0, C4<0>, C4<0>, C4<0>;
+L_0x59c72f1cb990 .functor OR 1, L_0x59c72f1cb820, L_0x59c72f1cb920, C4<0>, C4<0>;
+L_0x59c72f1cbaf0 .functor AND 1, L_0x59c72f1cb670, L_0x59c72f1cb990, C4<1>, C4<1>;
+v0x59c72f1b2ca0_0 .net *"_ivl_0", 0 0, L_0x59c72f1cb3b0;  1 drivers
+v0x59c72f1ca3d0_0 .net *"_ivl_10", 0 0, L_0x59c72f1cb820;  1 drivers
+v0x59c72f1ca4b0_0 .net *"_ivl_12", 0 0, L_0x59c72f1cb920;  1 drivers
+v0x59c72f1ca570_0 .net *"_ivl_14", 0 0, L_0x59c72f1cb990;  1 drivers
+v0x59c72f1ca650_0 .net *"_ivl_2", 0 0, L_0x59c72f1cb4a0;  1 drivers
+v0x59c72f1ca780_0 .net *"_ivl_4", 0 0, L_0x59c72f1cb5b0;  1 drivers
+v0x59c72f1ca860_0 .net *"_ivl_6", 0 0, L_0x59c72f1cb670;  1 drivers
+v0x59c72f1ca940_0 .net *"_ivl_8", 0 0, L_0x59c72f1cb7b0;  1 drivers
+v0x59c72f1caa20_0 .net "s1", 0 0, L_0x59c72f1cbaf0;  alias, 1 drivers
+v0x59c72f1caae0_0 .net "x", 0 0, v0x59c72f1cb0f0_0;  1 drivers
+v0x59c72f1caba0_0 .net "y", 0 0, v0x59c72f1cb1f0_0;  1 drivers
+v0x59c72f1cac60_0 .net "z", 0 0, v0x59c72f1cb2c0_0;  1 drivers
+S_0x59c72f1cada0 .scope begin, "main" "main" 2 12, 2 12 0, S_0x59c72f1b28c0;
+ .timescale 0 0;
+    .scope S_0x59c72f1b28c0;
+T_0 ;
+    %fork t_1, S_0x59c72f1cada0;
+    %jmp t_0;
+    .scope S_0x59c72f1cada0;
+t_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb0f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %vpi_call 2 14 "$display", "Tabela verdade exercicio 6:" {0 0 0};
+    %vpi_call 2 15 "$monitor", "%0d | %b %b %b | %b", v0x59c72f1caf50_0, v0x59c72f1cb0f0_0, v0x59c72f1cb1f0_0, v0x59c72f1cb2c0_0, v0x59c72f1cb030_0 {0 0 0};
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb0f0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb1f0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x59c72f1cb2c0_0, 0, 1;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x59c72f1caf50_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x59c72f1caf50_0, 0, 32;
+    %end;
+    .scope S_0x59c72f1b28c0;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Extra6.v";

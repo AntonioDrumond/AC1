@@ -1,0 +1,37 @@
+; Antonio Drumond Cota de Sousa - 855947
+
+JMP MAIN
+
+FAT:	MOV B,D
+	DCR D
+	MOV C,D
+BCK:	CALL BXC
+	ADD E
+	MOV E,A
+	MOV B,D
+	MOV C,D
+	DCR C
+	DCR D
+	JNZ BCK
+
+	RET
+
+BXC:	ADD B
+	DCR C
+	JNZ BXC
+	RET
+
+LOADER:	MVI A,05
+	STA C0A0
+	MVI A,00
+	RET
+
+MAIN:	CALL LOADER
+
+	LXI H,C0A0
+	MOV D,M
+
+	CALL FAT
+	STA C0A2
+
+HLT

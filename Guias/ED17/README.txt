@@ -1,0 +1,3 @@
+Oi professor
+
+Nao entendi os enunciados das questoes 1, 2 e 3...

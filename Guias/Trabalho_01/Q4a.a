@@ -1,0 +1,28 @@
+; 855947 - Antonio Drumond Cota de Sousa
+;  Questao 4.a
+
+Start: 	lda zero
+		nand zero
+		and mask
+		out
+
+		lda zero
+		nand one
+		and maskf
+		out
+
+		lda one
+		nand zero
+		and mask
+		out
+
+		lda one
+		nand one
+		and mask
+		out
+
+		hlt
+
+one:	.data 2 0xffff
+zero: 	.data 2 0xfffe
+mask:	.data 2 0x0001

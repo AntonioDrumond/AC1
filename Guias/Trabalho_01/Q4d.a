@@ -1,0 +1,37 @@
+; 855947 - Antonio Drumond Cota de Sousa
+; Questao 4.d
+
+Start:	lda a
+		add b
+		sto c
+
+		; Check and print
+		and mask
+		brz Even
+		bra Odd
+Even:	lda c
+		out
+Odd:	lda b
+		sto a
+		lda c
+		sto b
+		
+		lda c
+		sub hundred
+		add one
+		
+		brp End
+		bra Start
+		
+End:	hlt
+
+
+a:		.data 2 0x0001
+b:		.data 2 0x0001
+c:		.data 2 0x0000
+
+hundred: 	.data 2 0x0048
+
+mask:	.data 2 0x0001
+one:	.data 2 0x0001
+tmp:	.data 2 0

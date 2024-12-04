@@ -1,0 +1,25 @@
+; 855947 - Antonio Drumond Cota de Sousa
+;  Questao 4.b
+
+Start: 	in
+		doubleAC
+		dcr			; AC = AC - 1
+		sto added
+
+Loop:	add result
+		sto result
+		lda added
+		dcr
+		brz Done
+		dcr
+		brz Done
+		sto added
+		bra Loop
+		
+Done:	lda result
+		out
+		hlt
+
+
+result:	.data 2 0
+added: 	.data 2 0

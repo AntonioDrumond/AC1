@@ -8,7 +8,7 @@ Start: 	lda zero
 
 		lda zero
 		nand one
-		and maskf
+		and mask
 		out
 
 		lda one

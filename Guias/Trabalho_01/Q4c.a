@@ -4,36 +4,27 @@
 
 Start:	in
 		sto n
-		sto tmp
 
-		; Primeiro, conseguir a metade do numero
-Div:		sto tmp
-		lda half
-		add one
+		div two
 		sto half
-		lda tmp
-		sub two
-		brz Div
 
-Check:	lda n
+Verify:	lda n
+Loop:	sub i
+		brz Naoprimo
+		brp Loop
 		sto tmp
-Subin:	sub i
-		brz Negativo
-		brp Subin
 		lda i
 		add one
 		sto i
-		lda half
-		sub i
-		brz Positivo
-		brp Check
-		bra Positivo
+		sub half
+		brp Primo
+		brz Primo
+		bra Verify
 
-
-Negativo:	lda zero
+Primo:		lda zero
 			out
 			hlt
-Positivo:	lda one
+Naoprimo:	lda one
 			out
 			hlt
 

@@ -1,0 +1,73 @@
+; 855947 - Antonio Drumond Cota de Sousa
+; Questao 4.e
+
+Start:	in
+		sto n1
+		sto tmp1
+		in 
+		sto n2
+		sto tmp2
+		lda n1
+		div two
+		sto half1
+		
+Test1:	lda tmp1
+		sub i
+		sto tmp1
+		brz Test2
+		brp Test1
+		bra Inc
+
+Test2:	lda tmp2
+		sub i
+		sto tmp2
+		brz IncC
+		brp Test2
+		bra Inc
+
+Inc:		lda i
+		add one
+		sto i
+		lda n1
+		sto tmp1
+		lda n2
+		sto tmp2
+	
+		lda n1
+		sub i
+		
+		brp Test1
+		brz Test1
+		bra End
+		
+IncC:	lda i
+		sto max
+		add one
+		sto i
+		lda n1
+		sto tmp1
+		lda n2
+		sto tmp2
+		
+		lda n1
+		sub i
+		
+		brp Test1
+		brz Test1
+		bra End
+
+
+End:	lda max
+		out
+		hlt
+
+
+n1:		.data 2 0
+n2:		.data 2 0
+tmp1:	.data 2 0
+tmp2:	.data 2 0
+i:		.data 2 0x0002
+max:	.data 2 0x0001
+one:	.data 2 0x0001
+two:	.data 2 0x0002
+half1:	.data 2 0
